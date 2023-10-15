@@ -10,7 +10,8 @@ refractive_index = float(input("Refractive index "))
 fig, ax = plt.subplots()
 x_list=[]
 y_list = []
-for x in range(0,90,1):
+x=0
+while x<91.0:
     try:
         dev = math.radians(x) + math.asin(refractive_index*math.sin(math.radians(top_angle)-math.asin(math.sin(math.radians(x))/refractive_index)))-math.radians(top_angle)
         x_list.append(x)
@@ -18,6 +19,7 @@ for x in range(0,90,1):
     except ValueError:
         print("Value error")
         continue
+    x+=0.00001
 if len(y_list) == 0:
     print("No angles of deviation found")
 else:
