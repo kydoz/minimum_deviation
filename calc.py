@@ -11,7 +11,8 @@ fig, ax = plt.subplots()
 x_list=[]
 y_list = []
 x=0
-while x<91.0:
+prec = 0.001 #the precision we wish to obtain
+while x<=90.0:
     try:
         dev = math.radians(x) + math.asin(refractive_index*math.sin(math.radians(top_angle)-math.asin(math.sin(math.radians(x))/refractive_index)))-math.radians(top_angle)
         x_list.append(x)
@@ -19,7 +20,7 @@ while x<91.0:
     except ValueError:
         print("Value error")
         continue
-    x+=0.00001
+    x+=prec
 if len(y_list) == 0:
     print("No angles of deviation found")
 else:
